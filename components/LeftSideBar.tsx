@@ -5,15 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-const LeftScrollBar = () => {
+const LeftSideBar = () => {
   const pathName = usePathname();
   const router = useRouter();
   return (
     <section className="left_sidebar">
       <nav className="flex flex-col gap-6">
-        <Link href="/" className="flex gap-3 items-center cursor-pointer">
-          <Image src="/icons/logo.svg" alt="logo" width={38} height={32} />{" "}
-          <h1 className="max-lg:hidden">Podcastr</h1>
+        <Link
+          href="/"
+          className="flex cursor-pointer items-center gap-5 pb-10 max-lg:justify-center"
+        >
+          <Image src="/icons/logo.svg" alt="logo" width={25} height={30} />{" "}
+          <h1 className="text-24 font-extrabold text-white max-lg:hidden">
+            Podcastr
+          </h1>
         </Link>
         {sidebarLinks.map((link) => {
           const isActive =
@@ -31,8 +36,8 @@ const LeftScrollBar = () => {
               <Image
                 src={link.imgURL}
                 alt={link.label}
-                width={38}
-                height={32}
+                width={24}
+                height={24}
               />{" "}
               <h1 className="max-lg:hidden">{link.label}</h1>
             </Link>
@@ -43,4 +48,4 @@ const LeftScrollBar = () => {
   );
 };
 
-export default LeftScrollBar;
+export default LeftSideBar;
